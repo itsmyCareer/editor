@@ -10,13 +10,11 @@ def render_file():
 def upload_file():
     if request.method == 'POST':
         result = request.form
-        a = result.get('title')
-        print(result)
-        print(a)
+
         f = request.files['file']
-        # t = request.files['title']
-        # u = request.files['user']
-        # f.save(secure_filename('imgs' +'/' +u + '/' + t+ '/'+f.filename))
+        t = result.get('title')
+        u = result.get('user')
+        f.save(secure_filename('imgs' +'/' +u + '/' + t+ '/'+f.filename))
         return '성공'
 
 if __name__ == '__main__':
