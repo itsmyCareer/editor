@@ -9,10 +9,12 @@ def render_file():
 @app.route('/fileUpload', methods = ['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
-        f = request.files['file']
-        t = request.files['title']
-        u = request.files['user']
-        f.save(secure_filename('imgs' +'/' +u + '/' + t+ '/'+f.filename))
+        result = request.form
+        print(result)
+        # f = request.files['file']
+        # t = request.files['title']
+        # u = request.files['user']
+        # f.save(secure_filename('imgs' +'/' +u + '/' + t+ '/'+f.filename))
         return '성공'
 
 if __name__ == '__main__':
