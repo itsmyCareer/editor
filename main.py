@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_file
 from werkzeug.utils import secure_filename
 app = Flask(__name__)
 
@@ -16,7 +16,13 @@ def upload_file():
         u = result.get('user')
         o = secure_filename(u + '/'+f.filename)
         f.save('imgs' + '/' + o)
-        return '성공'
+        return o + '의 이름으로 저장되었습니다.'
+
+@app.route('/fileLoad')
+def get_image():
+    filename = request.args.get('name')
+    return send_file('imgs/' + filename, mimetype='image/png')
+        
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
