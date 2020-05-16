@@ -12,7 +12,7 @@ def upload_file():
         f = request.files['file']
         t = request.files['title']
         u = request.files['user']
-        f.save(secure_filename('imgs' +'/' +u + '/' + t+ '/'f.filename))
+        f.save(secure_filename('imgs' +'/' +u + '/' + t+ '/'+f.filename))
         return '성공'
 
 if __name__ == '__main__':
