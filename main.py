@@ -14,8 +14,8 @@ def upload_file():
         f = request.files['file']
         t = result.get('title')
         u = result.get('user')
-        o = secure_filename('imgs' +'/' +u + '/' + t+ '/'+f.filename)
-        f.save(imgs + '/' + o)
+        o = secure_filename(u + '/'+f.filename)
+        f.save('imgs' + '/' + o)
         return '성공'
 
 if __name__ == '__main__':
