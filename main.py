@@ -10,7 +10,9 @@ def render_file():
 def upload_file():
     if request.method == 'POST':
         f = request.files['file']
-        f.save(secure_filename(f.filename))
+        t = request.files['title']
+        u = request.files['user']
+        f.save(secure_filename('imgs' +'/' +u + '/' + t+ '/'f.filename))
         return '성공'
 
 if __name__ == '__main__':
